@@ -123,6 +123,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ItemTableOutlet" destination="TPL-TX-VvG" id="RJ5-G5-PRc"/>
+                                            <segue destination="WkY-M3-3dT" kind="show" identifier="list2Detail" id="dtV-Q6-lX3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -198,26 +199,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Description" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Toh-9P-2qm">
-                                <rect key="frame" x="16" y="206" width="336" height="234"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOA-sK-X9S">
+                                <rect key="frame" x="16" y="225" width="336" height="261"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgv-gY-DUs">
-                                <rect key="frame" x="57" y="521" width="255" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="detailViewPageOutlet" destination="Teg-MC-LXm" id="1mh-lJ-TdS"/>
+                        <outlet property="yourDescriptionOutlet" destination="GOA-sK-X9S" id="tmZ-Lm-tp0"/>
+                        <outlet property="yourItemOutlet" destination="yVP-36-OHE" id="hwY-Id-rjL"/>
+                        <outlet property="yourListOutlet" destination="WBQ-Kv-ftv" id="SJV-Om-vZr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSy-Ta-IxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

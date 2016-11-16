@@ -18,6 +18,27 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
    
    @IBOutlet weak var ListTextFieldOutlet: UITextField!
    
+   
+   // MARK: UITableViewDataSource --------------------------------------------------------
+   
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      // returns the count of items in the lists array
+      return lists.count
+   }
+   
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      // gets the cell to read data by dequeing it
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! ListTableViewCell
+      // sets the indexPath
+      let myRow = indexPath.row
+      // gets the array's indexPath
+      let listItem = lists[myRow]
+      // grabs listTitle from the lists array and sets it to cell's outlet
+      cell.listTableCellOutlet.text = listItem.listTitle
+      // returns the cell
+      return cell
+   }
+   
    // MARK: IBAction ----------------------------------------------------------------------
    
    @IBAction func listAddBtnAction(_ sender: UIButton) {
@@ -32,41 +53,16 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
       //ListTextFieldOutlet.reloadInputViews()
    }
    
-   // MARK: UITableViewDataSource --------------------------------------------------------
-   
-   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      // returns the count of items in the lists array
-      return lists.count
-   }
-   
-   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      // gets the cell to read data by dequeing it
-      let cell = tableView.dequeueReusableCell(withIdentifier: "listTableCell", for: indexPath) as! ListTableViewCell
-      // sets the indexPath
-      let myRow = indexPath.row
-      // gets the array's indexPath
-      let listItem = lists[myRow]
-      // grabs listTitle from the lists array and sets it to cell's outlet
-      cell.listTableCellOutlet.text = listItem.listTitle
-      // returns the cell
-      return cell
-   }
-   
    // MARK: override ----------------------------------------------------------------
    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       // segue id drom list view to item view is identify as list2Item
-      if segue.identifier == "list2Item" {
-         // let destination view controller segue to item view controller
-         let dvc = segue.destination as! ItemViewController
-         // grabs the index of the row that was selected from the table outlet
-         let index = ListTableOutlet.indexPathForSelectedRow?.row
-         let myLists = lists[index!]
-         // it sends lists array into seque currentItem
-         dvc.currentItem = myLists
-      }
+      // let dvc (destination view controller) segue to item view controller
+      let dvc = segue.destination as! ItemViewController
+      // grabs the index of the row that was selected from the table outlet
+      dvc.currentItemIndex = ListTableOutlet.indexPathForSelectedRow?.row
    }
-
+   
    override func viewWillAppear(_ animated: Bool) {
       ListTableOutlet.reloadData()
    }
