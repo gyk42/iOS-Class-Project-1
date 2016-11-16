@@ -19,6 +19,10 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
    @IBAction func ItemAddBtnAction(_ sender: UIButton) {
    }
    
+   
+   // creating a new instance of Item object with optional
+   var currentItem: Item?
+   
    // MARK: UITableViewDataSource ----------------------------------------------------
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

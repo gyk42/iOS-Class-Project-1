@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qnd-TN-WBW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UCj-Ol-exS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -43,7 +43,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="listLabelOutlet" destination="pj0-bf-Hv1" id="zL1-qZ-UtM"/>
+                                            <outlet property="listTableCellOutlet" destination="8cG-lz-h23" id="TcV-wF-Qfq"/>
+                                            <segue destination="0e8-k3-gvp" kind="show" identifier="list2Item" id="DO3-Qa-PLr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -52,14 +53,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="gcH-Sn-Bdc"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aib-0o-w0A">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem title="To Do List" id="Bwi-ZA-jdw"/>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a list " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIF-SM-cbN">
                                 <rect key="frame" x="16" y="73" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,12 +82,11 @@
                     <connections>
                         <outlet property="ListTableOutlet" destination="M9u-fX-lnA" id="d1v-hw-WlR"/>
                         <outlet property="ListTextFieldOutlet" destination="vb9-rF-nHA" id="0f9-C7-2cR"/>
-                        <segue destination="0e8-k3-gvp" kind="show" id="ZJF-JJ-AVe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706.39999999999998" y="35.532233883058474"/>
+            <point key="canvasLocation" x="1645.5999999999999" y="35.532233883058474"/>
         </scene>
         <!--Item View Controller-->
         <scene sceneID="Lnm-Rm-CH4">
@@ -139,13 +131,6 @@
                                     <outlet property="delegate" destination="0e8-k3-gvp" id="lah-pG-0Kn"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9u-hz-gjQ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="To Do List" id="B0Y-Bw-5iQ"/>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add items to your" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTb-nR-fcU">
                                 <rect key="frame" x="5" y="77" width="189" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -185,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fy-It-dn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1425" y="36"/>
+            <point key="canvasLocation" x="2364" y="35.532233883058474"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="rUV-bQ-Qe4">
@@ -199,13 +184,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JWx-wB-Wmr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="To Do List" id="cWj-8Q-3Rx"/>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBQ-Kv-ftv">
                                 <rect key="frame" x="16" y="84" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -243,25 +221,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jSy-Ta-IxV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2134" y="36"/>
+            <point key="canvasLocation" x="3072.8000000000002" y="35.532233883058474"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="rua-3K-4SE">
+        <scene sceneID="zyC-p7-NJN">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qnd-TN-WBW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UCj-Ol-exS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rfp-Vm-0sY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3u8-gu-HOt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kll-72-srI"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="596-Dm-KPS"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M1W-y4-xh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocI-59-YSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234.40000000000001" y="35.532233883058474"/>
+            <point key="canvasLocation" x="706.39999999999998" y="35.532233883058474"/>
         </scene>
     </scenes>
     <resources>

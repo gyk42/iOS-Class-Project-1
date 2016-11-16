@@ -10,7 +10,8 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
 
-   @IBOutlet weak var listLabelOutlet: UIView!
+   
+   @IBOutlet weak var listTableCellOutlet: UILabel!
    
     override func awakeFromNib() {
         super.awakeFromNib()

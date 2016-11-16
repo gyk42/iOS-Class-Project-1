@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class DataController {
-   
-   static let sharedInstance = DataController()
-   
-   var Lists = [List]()
-}
+//class DataController {
+//   
+//   static let sharedInstance = DataController()
+//   
+//}
+var lists = [List]()
 
 class List {
    var listTitle: String
