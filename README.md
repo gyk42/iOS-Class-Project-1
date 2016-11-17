@@ -17,6 +17,10 @@ Tap on the newly created item, this will segue into a detail page with the list 
 * Delete will be available
 * Comletion marker will be available 
 
-![Project Image](images/main.PNG)
-![Project Image](images/list.PNG)
-![Project Image](images/item.PNG)
+##Prototypes
+A link to protoype <a href="https://popapp.in/w/projects/582b2b23645a914e5c43bf7f/mockups/582b2b3b5977f520205dcc71" target="_blank">POP</a>... please hit play and click around. (taps are hyperlinked)
+
+##Screenshot
+![Project Image](https://github.com/gyk42/iOS-Class-Project-1/blob/master/images/main.png)
+![Project Image](https://github.com/gyk42/iOS-Class-Project-1/blob/master/images/list.png)
+![Project Image](https://github.com/gyk42/iOS-Class-Project-1/blob/master/images/item.png)
