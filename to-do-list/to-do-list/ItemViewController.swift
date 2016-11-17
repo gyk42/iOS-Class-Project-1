@@ -10,13 +10,16 @@ import UIKit
 
 class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
    // creating a new container of index
-   var currentItemIndex: Int!
    
    // MARK: IBOutlet ----------------------------------------------------------------------
+   
+   @IBOutlet weak var ItemListNameOutlet: UILabel!
    
    @IBOutlet weak var ItemTableOutlet: UITableView!
    
    @IBOutlet weak var ItemTextFieldOutlet: UITextField!
+   
+   var currentItemIndex: Int!
    
    // MARK: UITableViewDataSource ----------------------------------------------------
    
@@ -34,6 +37,7 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
       let itemItem = lists[currentItemIndex].items[myRow]
       // grabs itemTitle from the lists array and sets it to cell's outlet
       cell.ItemTableOutlet.text = itemItem.itemTitle
+      
       // returns the cell
       return cell
 
@@ -59,14 +63,15 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
       // let dvc (destination view controller) segue to item view controller
       let dvc = segue.destination as! DetailViewController
       // grabs the index of the row that was selected from the table outlet
-      dvc.currentDetailIndex = ItemTableOutlet.indexPathForSelectedRow?.row
+      dvc.currentListIndex = currentItemIndex
+      dvc.currentItemIndex = ItemTableOutlet.indexPathForSelectedRow?.row
    }
 
    
    //
    override func viewDidLoad() {
       super.viewDidLoad()
-      
+      ItemListNameOutlet.text = lists[currentItemIndex].listTitle.uppercased()
       // Do any additional setup after loading the view.
    }
 }

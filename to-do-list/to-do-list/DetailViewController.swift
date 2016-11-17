@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
    
-   var currentDetailIndex: Int!
+   var currentListIndex: Int!
    var currentItemIndex: Int!
    
    @IBOutlet var detailViewPageOutlet: UIView!
@@ -21,13 +21,18 @@ class DetailViewController: UIViewController {
    
    @IBOutlet weak var yourDescriptionOutlet: UILabel!
    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-   //   yourListOutlet.text = lists[currentItemIndex].listTitle
-        // Do any additional setup after loading the view.
-    }
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      yourListOutlet.text = lists[currentListIndex].listTitle
+      yourItemOutlet.text = lists[currentListIndex].items[currentItemIndex].itemTitle
+      yourDescriptionOutlet.text = lists[currentListIndex].items[currentItemIndex].description
+      
+      //yourListOutlet.text = lists[currentItemIndex].listTitle
+      // Do any additional setup after loading the view.
+   }
    
-
+   
    
    
    

@@ -34,7 +34,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
       // gets the array's indexPath
       let listItem = lists[myRow]
       // grabs listTitle from the lists array and sets it to cell's outlet
-      cell.listTableCellOutlet.text = listItem.listTitle
+      cell.listTableCellOutlet.text = listItem.listTitle.uppercased()
       // returns the cell
       return cell
    }

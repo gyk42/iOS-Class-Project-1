@@ -9,11 +9,6 @@
 import Foundation
 import UIKit
 
-//class DataController {
-//   
-//   static let sharedInstance = DataController()
-//   
-//}
 var lists = [List]()
 
 class List {
@@ -27,7 +22,7 @@ class List {
 
 class Item {
    var itemTitle: String
-   var description: String
+   var description = "static"
    
    init(itemTitle: String, description: String) {
       self.itemTitle = itemTitle
