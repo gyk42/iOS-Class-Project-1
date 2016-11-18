@@ -3,19 +3,19 @@
 This is a generic to-do-list.  
 
 ##List of Lists
-Create a list by adding some text in the text field.  Tap a plus sign to add to the page. Page will update automatically.
+Create a list by adding some text in the text field.  Tap a plus sign to add to the page. Page will update automatically. Swipe left to delete a list.
 
 ##List of Items
-Tap on the newly created list to get to the list of items. Same process as creating a list. Add text to the text field and tap a plus sign create a new item. Page will update automatically.
+Tap on the newly created list to get to the list of items. Same process as creating a list. Add text to the text field and tap a plus sign create a new item. Page will update automatically.  Swipe left to delete a list.
 
 ##Detail page
-Tap on the newly created item, this will segue into a detail page with the list name and item name that was created plus static description.
+Tap on the newly created item, this will segue into a detail page with the list name and item name that was created.  Type in the textfield and hit save will save  description.
 
 ##Future Implementation
-* Description will be entered by an user
+* <del>Description will be entered by an user</del>
 * Edit will be available for both lists and items
-* Delete will be available
-* Comletion marker will be available 
+* <del>Delete will be available</del>
+* Completion marker will be available 
 
 ##Prototypes
 A link to protoype <a href="https://popapp.in/w/projects/582b2b23645a914e5c43bf7f/mockups/582b2b3b5977f520205dcc71" target="_blank">POP</a>... please hit play and click around. (taps are hyperlinked)
@@ -24,3 +24,4 @@ A link to protoype <a href="https://popapp.in/w/projects/582b2b23645a914e5c43bf7
 ![Project Image](https://github.com/gyk42/iOS-Class-Project-1/blob/master/images/main.png)
 ![Project Image](https://github.com/gyk42/iOS-Class-Project-1/blob/master/images/list.png)
 ![Project Image](https://github.com/gyk42/iOS-Class-Project-1/blob/master/images/item.png)
+![Project Image](https://github.com/gyk42/iOS-Class-Project-1/blob/master/images/detail.png)
