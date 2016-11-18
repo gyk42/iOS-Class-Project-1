@@ -10,8 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
    
-   var currentListIndex: Int!
-   var currentItemIndex: Int!
+   // MARK: IBOutlet --------------------------------------------------------------------------------------
    
    @IBOutlet var detailViewPageOutlet: UIView!
    
@@ -19,21 +18,27 @@ class DetailViewController: UIViewController {
    
    @IBOutlet weak var yourItemOutlet: UILabel!
    
-   @IBOutlet weak var yourDescriptionOutlet: UILabel!
+   @IBOutlet weak var yourDescriptionTextFieldOutlet: UITextField!
+
+   // Variables from segue so that page can access indes from both list and item
+   var currentListIndex: Int!
+   var currentItemIndex: Int!
    
-   override func viewDidLoad() {
-      super.viewDidLoad()
-      
-      yourListOutlet.text = lists[currentListIndex].listTitle
-      yourItemOutlet.text = lists[currentListIndex].items[currentItemIndex].itemTitle
-      yourDescriptionOutlet.text = lists[currentListIndex].items[currentItemIndex].description
-      
-      //yourListOutlet.text = lists[currentItemIndex].listTitle
-      // Do any additional setup after loading the view.
+   // MARK: IBAction -------------------------------------------------------------------------------------
+   
+   // Saves description and displays it on the page
+   @IBAction func tappedSaveBtnAction(_ sender: Any) {
+      lists[currentListIndex].items[currentItemIndex].description = yourDescriptionTextFieldOutlet.text!
+      yourDescriptionTextFieldOutlet.backgroundColor = UIColor.clear
    }
    
+   // MARK: override ----------------------------------------------------------------------------------------
    
-   
-   
-   
+   // Displays list title, item title and description on load
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      yourListOutlet.text = lists[currentListIndex].listTitle.uppercased()
+      yourItemOutlet.text = lists[currentListIndex].items[currentItemIndex].itemTitle
+      yourDescriptionTextFieldOutlet.text = lists[currentListIndex].items[currentItemIndex].description
+   }
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-   // creating a new container of index
    
    // MARK: IBOutlet ----------------------------------------------------------------------
    
@@ -23,24 +22,24 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
    
    // MARK: UITableViewDataSource ----------------------------------------------------
    
-   
+   // returns the count of items in the items array
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return lists[currentItemIndex].items.count
    }
    
+   // gets the cell to read data by dequeing it and grabs itemTitle from the lists array and sets it to cell's outlet
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      // gets the cell to read data by dequeing it
       let cell = tableView.dequeueReusableCell(withIdentifier: "itemTableCell", for: indexPath) as! ItemTableViewCell
-      // sets the indexPath
-      let myRow = indexPath.row
-      // gets the array's indexPath
-      let itemItem = lists[currentItemIndex].items[myRow]
-      // grabs itemTitle from the lists array and sets it to cell's outlet
-      cell.ItemTableOutlet.text = itemItem.itemTitle
-      
-      // returns the cell
+      cell.ItemTableOutlet.text = lists[currentItemIndex].items[indexPath.row].itemTitle
       return cell
-
+   }
+   
+   // grabs the row and deletes the row
+   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+         lists[currentItemIndex].items.remove(at: indexPath.row)
+         ItemTableOutlet.reloadData()
+      }
    }
    
    // MARK: IBAction --------------------------------------------------------------------------------------
@@ -48,27 +47,27 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
    @IBAction func ItemAddBtnAction(_ sender: UIButton) {
       // Grabs text from the text field and puts it into listTextField
       let itemTextField = ItemTextFieldOutlet.text!
-      let descriptionStatic = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. "
-      // Creates an instance of List object and inits
-      let newItem = Item.init(itemTitle: itemTextField, description: descriptionStatic)
-      // appends new item to the lists array
-      lists[currentItemIndex].items.append(newItem)
+      // It clears the input field
+      ItemTextFieldOutlet.text = ""
+      // Creates an instance of List object and appends new item to the lists array
+      lists[currentItemIndex].items.append(Item.init(itemTitle: itemTextField, description: ""))
       // reloads the table so that it gets new info
       ItemTableOutlet.reloadData()
-      //ListTextFieldOutlet.reloadInputViews()
    }
+   
+   // MARK: override ----------------------------------------------------------------------------------------
    
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       // segue id drom list view to item view is identify as list2Item
       // let dvc (destination view controller) segue to item view controller
       let dvc = segue.destination as! DetailViewController
-      // grabs the index of the row that was selected from the table outlet
+      // grabs the index of the list items
       dvc.currentListIndex = currentItemIndex
+      // grabs the index of the row that was selected from the table outlet
       dvc.currentItemIndex = ItemTableOutlet.indexPathForSelectedRow?.row
    }
-
    
-   //
+   // Displays list title on load
    override func viewDidLoad() {
       super.viewDidLoad()
       ItemListNameOutlet.text = lists[currentItemIndex].listTitle.uppercased()
