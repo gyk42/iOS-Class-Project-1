@@ -28,8 +28,9 @@ class DetailViewController: UIViewController {
    
    // Saves description and displays it on the page
    @IBAction func tappedSaveBtnAction(_ sender: Any) {
-      lists[currentListIndex].items[currentItemIndex].description = yourDescriptionTextFieldOutlet.text!
+      lists[currentListIndex].items[currentItemIndex].description1 = yourDescriptionTextFieldOutlet.text!
       yourDescriptionTextFieldOutlet.backgroundColor = UIColor.clear
+      Model.shared.persistListToDefaults()
    }
    
    // MARK: override ----------------------------------------------------------------------------------------
@@ -39,6 +40,6 @@ class DetailViewController: UIViewController {
       super.viewDidLoad()
       yourListOutlet.text = lists[currentListIndex].listTitle.uppercased()
       yourItemOutlet.text = lists[currentListIndex].items[currentItemIndex].itemTitle
-      yourDescriptionTextFieldOutlet.text = lists[currentListIndex].items[currentItemIndex].description
+      yourDescriptionTextFieldOutlet.text = lists[currentListIndex].items[currentItemIndex].description1
    }
 }
