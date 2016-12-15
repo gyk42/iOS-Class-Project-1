@@ -35,6 +35,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
          lists.remove(at: indexPath.row)
+         Model.shared.persistListToDefaults()
          ListTableOutlet.reloadData()
       }
    }
@@ -49,6 +50,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
       // Creates an instance of List object and appends new item to the lists array
       lists.append(List.init(listTitle: listTextField))
       // reloads the table so that it gets new info
+      Model.shared.persistListToDefaults()
       ListTableOutlet.reloadData()
    }
    
@@ -65,5 +67,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
    override func viewWillAppear(_ animated: Bool) {
       ListTableOutlet.reloadData()
    }
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      
+      
+   }
+
 }
 

@@ -38,6 +38,7 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
          lists[currentItemIndex].items.remove(at: indexPath.row)
+         Model.shared.persistListToDefaults()
          ItemTableOutlet.reloadData()
       }
    }
@@ -50,8 +51,9 @@ class ItemViewController: UIViewController, UITableViewDataSource, UITableViewDe
       // It clears the input field
       ItemTextFieldOutlet.text = ""
       // Creates an instance of List object and appends new item to the lists array
-      lists[currentItemIndex].items.append(Item.init(itemTitle: itemTextField, description: ""))
+      lists[currentItemIndex].items.append(Item.init(itemTitle: itemTextField, description1: ""))
       // reloads the table so that it gets new info
+      Model.shared.persistListToDefaults()
       ItemTableOutlet.reloadData()
    }
    
